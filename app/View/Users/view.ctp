@@ -29,20 +29,22 @@
 </head>
 <body bgcolor="#cee4ae">
 
-<div id='cssmenu'>
-<ul>
-   <li><a href='#'>LOGO</a></li>
+<div id='cssmenu' align="center" style="margin-bottom:60px;">
+<ul style="list-style-type: none;">
+   <li>
+   	<a href='#'>
+   		<img src="http://localhost/terafile/img/logo.png">
+   	</a>
+   </li>
 </ul>
 </div>
 
 
 
-<?php print_r($profile["User"]); ?>
-
 
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3 col-md-offset-1">
     	<div class="panel panel-default">
     		<div class="panel-heading">
     			<h3 class="panel-title">ユーザー情報</h3>
@@ -62,10 +64,18 @@
 				<p><font size="-1">ブログ ： 　<?php echo $profile["User"]["blog"]; ?></font></p>
     			</div>
 
+    			<div class="progress">
+				  <div class="progress-bar progress-bar-success" aria-valuenow="60"style="width: 35%">
+				    <span class="sr-only">35%</span>
+				  </div>
+				  <div class="progress-bar progress-bar-danger progress-bar-striped"aria-valuenow="60" style="width: 60%">
+				    <span class="sr-only">60%</span>
+				  </div>
+				 </div>
     		</div>
     	</div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
 
 
 

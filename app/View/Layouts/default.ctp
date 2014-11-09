@@ -39,7 +39,7 @@
 		</div>
 		
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 <?php echo $this->Html->script('bootstrap.min');
 		//echo $this->Html->script('bootstrap-select.min');

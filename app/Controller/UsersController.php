@@ -13,12 +13,6 @@ class UsersController extends AppController {
 
 		$question = $this->Question->find("all",array('conditions'=>array("display_name"=>$this->request->pass[0])));
 
-		// $this->Reply->bindModel(
-  //                       array(
-  //                           'hasMany' => array('Question'),
-  //                           )
-  //                       );
-
 		$reply = $this->Reply->find("all",array('conditions'=>array("Reply.display_name"=>$this->request->pass[0])));
 		
 
