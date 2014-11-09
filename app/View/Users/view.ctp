@@ -8,6 +8,7 @@
 
     foreach($Event as $val){
         $val["Event"]["created"] = $val["Event"]["event_date"];
+        $val["Event"]["title"] = $val["Event"]["name"];
         $timeline[] = $val["Event"];
     }
     foreach($TimelineData as $val){
@@ -115,20 +116,27 @@
 
             <br class="clear">
 
-
+            <?php foreach($timeline as $val){?>
             <div class="timeline-wrapper">
-                <h2 class="timeline-time"><span style="background: red;">PHP</span></h2>
+                <h2 class="timeline-time">
+                    <span style="background: red;">
+                        <?php
+                            if(empty($val["tag"])){
+                                echo $val["title"];
+                            }else{
+                                echo $val["tag"];
+                            }
+                         ?>
+                    </span>
+                </h2>
                 <dl class="timeline-series">
                     <dt id="19540517" class="timeline-event"><a></a></dt>
                     <dd class="timeline-event-content" id="19540517EX">
-                        <a href="">hogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a>
+                        <a href="">asdfasdf</a><br/>
                     </dd><!-- /.timeline-event-content -->
                 </dl><!-- /.timeline-series -->
-            </div><!-- /.timeline-wrapper --> 
+            </div><!-- /.timeline-wrapper -->
+            <?php } ?>
 
 
 
