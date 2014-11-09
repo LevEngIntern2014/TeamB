@@ -1,3 +1,33 @@
+<?php
+    $cate_color = array("php"=>"blue","perl"=>"red");
+    //var_dump($Event);
+    //var_dump($TimelineData);
+    //exit;
+
+    $timeline = array();
+
+    foreach($Event as $val){
+        $val["Event"]["created"] = $val["Event"]["event_date"];
+        $timeline[] = $val["Event"];
+    }
+    foreach($TimelineData as $val){
+        if(!empty($val["Question"])){
+            $timeline[] = $val["Question"];
+        }
+    }
+    foreach($TimelineData as $val){
+     if(!empty($val["Reply"])){
+        $timeline[] = $val["Reply"];
+     }
+    }
+
+    foreach($timeline as $key => $val){
+        $updated[$key] = $val["created"];
+    }
+    //配列のkeyのupdatedでソート
+    array_multisort($updated, SORT_DESC, $timeline);
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -75,6 +105,7 @@
 
             <br class="clear">
 
+
             <div class="timeline-wrapper">
                 <h2 class="timeline-time"><span style="background: red;">PHP</span></h2>
                 <dl class="timeline-series">
@@ -88,6 +119,8 @@
                     </dd><!-- /.timeline-event-content -->
                 </dl><!-- /.timeline-series -->
             </div><!-- /.timeline-wrapper -->
+
+
 
             <div class="timeline-wrapper">
                 <h2 class="timeline-time"><span>Perl</span></h2>
