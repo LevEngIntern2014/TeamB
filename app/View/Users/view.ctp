@@ -35,7 +35,7 @@
    <meta charset='UTF-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="ramen.css">
+   <?php echo $this->Html->css('ramen'); ?>
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    
 
@@ -64,8 +64,8 @@
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
-   		<img src="http://localhost/terafile/img/logo.png">
-   	</a>
+   		<img src=<?php echo "http://".$_SERVER["SERVER_NAME"]."/terafile/img/logo.png" ?>>
+   	</a><img src="/terafile/img/git.png" width="30px;" height="30px;">
    </li>
 </ul>
 </div>
@@ -95,8 +95,8 @@
 				<p><font size="-1">ブログ ： 　<?php echo $profile["User"]["blog"]; ?></font></p>
     			</div>
     			SNSアカウント
-    			<img src="/terafile/img/ficon.jpg" width="30px;" height="30px;">
-    			<img src="/terafile/img/tw.jpg" width="30px;" height="30px;">
+    			<img src="/te/img/ficon.jpg" width="30px;" height="30px;">
+    			<img src="/terafile/img/tw.png" width="30px;" height="30px;">
     			<img src="/terafile/img/ss.jpg" width="30px;" height="30px;">
     			<img src="/terafile/img/gp.jpg" width="30px;" height="30px;">
     			<img src="/terafile/img/git.jpg" width="30px;" height="30px;">
