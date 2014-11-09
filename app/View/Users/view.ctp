@@ -8,7 +8,7 @@
         "プログラミング言語"=>"#ffffcc",
         "データベース"=>"#ccff99",
         "キャスト"=>"#ccff99",
-      );
+    );
 
     $timeline = array();
 
@@ -19,11 +19,13 @@
     }
     foreach($TimelineData as $val){
         if(!empty($val["Question"])){
+            $val["Question"]["url"] = "https://teratail.com/questions/".$val["Question"]["id"];
             $timeline[] = $val["Question"];
         }
     }
     foreach($TimelineData as $val){
      if(!empty($val["Reply"])){
+        $val["Reply"]["url"] = "https://teratail.com/questions/".$val["Reply"]["id"];
         $timeline[] = $val["Reply"];
      }
     }
