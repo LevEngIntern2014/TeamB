@@ -93,15 +93,18 @@
 				<p><font size="-1">　自己紹介 ： <?php echo $profile["User"]["self_info"]; ?></font></p>
 				<p><font size="-1">ブログ ： 　<?php echo $profile["User"]["blog"]; ?></font></p>
     			</div>
-
+    			SNSアカウント
+    			<img src="/terafile/img/ficon.jpg" width="30px;" height="30px;">
+    			<img src="/terafile/img/tw.jpg" width="30px;" height="30px;">
+    			<img src="/terafile/img/ss.jpg" width="30px;" height="30px;">
+    			<img src="/terafile/img/gp.jpg" width="30px;" height="30px;">
+    			<img src="/terafile/img/git.jpg" width="30px;" height="30px;">
+    			<p>ベストアンサー率</p>
     			<div class="progress">
-				  <div class="progress-bar progress-bar-success" aria-valuenow="60"style="width: 35%">
-				    <span class="sr-only">35%</span>
+				  <div class="progress-bar" role="progressbar" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100" style="width: 26%;">
+				    26%
 				  </div>
-				  <div class="progress-bar progress-bar-danger progress-bar-striped"aria-valuenow="60" style="width: 60%">
-				    <span class="sr-only">60%</span>
-				  </div>
-				 </div>
+				</div>
     		</div>
     	</div>
     </div>
