@@ -37,7 +37,9 @@ class UsersController extends AppController {
 				"title" => $value["title"],
 				"id"=>$value["id"],
 				"display_name"=>$this->request->pass[0],
-				"tag" => $value["tags"][0]);
+				"tag" => $value["tags"][0],
+				"created" => $value["created"],
+				"modified" => $value["modified"]);
 		}
 
 		echo "<pre>";
@@ -72,6 +74,8 @@ class UsersController extends AppController {
 				"question_id"=>$value["question_id"],
 				"display_name"=>$this->request->pass[0],
 				#"tag" => $value["tags"][0]
+				"created" => $value["created"],
+				"modified" => $value["modified"],
 				);
 		}
 
@@ -83,10 +87,7 @@ class UsersController extends AppController {
 			echo "plz try again";
 		}
 
-		echo "<pre>";
-		print_r($data);
-		echo "</pre>";
-		
+		$dataa["Question"] = array();
 		foreach ($data["Reply"] as $key => $value) {
 			# code...
 			$que_lists = "https://teratail.com/api/questions/".$value["question_id"];
@@ -94,11 +95,24 @@ class UsersController extends AppController {
 			$Datas=@file_get_contents($que_lists);
 			$endata=json_decode($Datas,true);
 
-			$data["Question"]=array("id"=>$endata["question"]["id"],"title"=>$endata["question"]["title"],"body"=>$endata["question"]["body"],"display_name"=>$endata["question"]["display_name"],"tags"=>$endata["question"]["tags"][0]);
+			$dataa["Question"][$key]=array(
+				"id"=>$endata["question"]["id"],
+				"title"=>$endata["question"]["title"],
+				"body"=>$endata["question"]["body"],
+				"display_name"=>$endata["question"]["display_name"],
+				"tag"=>$endata["question"]["tags"][0],
+				"created" => $value["created"],
+				"modified" => $value["modified"]
+				);
 
-			$this->Question->save($data);
+			
+			//$this->Question->save($data);
 
 		}
+		$this->Question->saveAll($dataa["Question"]);
+		echo "<pre>";
+		print_r($dataa);
+		echo "</pre>";
 	}
 
 	#userをDBに登録する

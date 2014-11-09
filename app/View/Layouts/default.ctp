@@ -23,7 +23,7 @@
 		//echo $this->Html->css('cake.generic');
 		echo $this->Html->css('bootstrap.min');
 		echo $this->Html->css('bootstrap-theme.min');
-		echo $this->Html->css('bootstrap-select.min');
+		//echo $this->Html->css('bootstrap-select.min');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -42,6 +42,6 @@
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 <?php echo $this->Html->script('bootstrap.min');
-		echo $this->Html->script('bootstrap-select.min');
+		//echo $this->Html->script('bootstrap-select.min');
 	 ?>
 </html>
