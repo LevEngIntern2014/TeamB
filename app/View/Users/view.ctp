@@ -37,22 +37,34 @@
 
 
 
-<?php print_r($profile["User"]["photo"]); ?>
+<?php print_r($profile["User"]); ?>
 
 
 
 <div class="row">
     <div class="col-md-4">
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<h3 class="panel-title">ユーザー情報</h3>
+    		</div>
+    		<div class="panel-body">
+    		<div  align=center>
+    			<h1>
+    				<!-- <img src=<?php //echo $profile["User"]["photo"]; ?> alt="" width="90" height="90"/> -->
+    				
+    				<img src=<?php echo $profile["User"]["photo"]; ?> alt="..." class="img-rounded">
+    			</h1>
 
-        <h1><img src=<?php echo $profile["User"]["photo"]; ?> alt="" width="90" height="90"/><font size="-1">　　ユーザー名　　　</font></h1>
+				<font size="-1">ユーザー名　: <a href=<?php echo "https://teratail.com/users/". $profile["User"]["display_name"]; ?> target="_blank"><?php echo $profile["User"]["display_name"]; ?></a></font>
+				<p><font size="-1">所属 ： <?php echo $profile["User"]["department"]; ?></font></p>
+				<p><font size="-1">　住居 ： <?php echo $profile["User"]["prefecture"]; ?></font></p>
+				<p><font size="-1">　自己紹介 ： <?php echo $profile["User"]["self_info"]; ?></font></p>
+				<p><font size="-1">ブログ ： 　<?php echo $profile["User"]["blog"]; ?></font></p>
+    			</div>
 
-        <p><font size="-1"><a href="http://www.google.com" target="_blank">Google</a></font></p>
-        <p><font size="-1">　所属 ： ○○株式会社</font></p>
-        <p><font size="-1">　住居 ： 東京</font></p>
-        <p><font size="-1">　自己紹介 ： あいうえおおおおおおおおお</font></p>
-
+    		</div>
+    	</div>
     </div>
-
     <div class="col-md-8">
 
 

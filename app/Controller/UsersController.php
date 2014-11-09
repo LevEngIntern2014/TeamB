@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
-	public $uses = array('User',"Question","Reply");
+	public $uses = array('User',"Question","Reply","Event");
 	public $core_url = "https://teratail.com/api";
 
 	public function view(){
@@ -11,10 +11,23 @@ class UsersController extends AppController {
 		$data=$this->User->findByDisplayName($this->request->pass[0]);
 		$this->set("profile",$data);
 
-		$data2 = $this->Question->find("all",array('conditions'=>array("display_name"=>$this->request->pass[0])));
-		//$this->set("data",json_decode($UserDatas));
-		//print_r($data2);
-	}
+		$question = $this->Question->find("all",array('conditions'=>array("display_name"=>$this->request->pass[0])));
+
+		// $this->Reply->bindModel(
+  //                       array(
+  //                           'hasMany' => array('Question'),
+  //                           )
+  //                       );
+
+		$reply = $this->Reply->find("all",array('conditions'=>array("Reply.display_name"=>$this->request->pass[0])));
+		
+
+		$margedata=array_merge($question,$reply);
+
+		$event=$this->Event->find("all");
+		$this->set("Event",$event);
+		$this->set("TimelineData",$margedata);
+	}	
 
 	#userが投稿したquestionを登録する
 	#kai ogita
@@ -69,11 +82,16 @@ class UsersController extends AppController {
 		
 		$data["Reply"]=array();
 		foreach ($encoded_data["replies"] as $key => $value) {
+			$que_lists = "https://teratail.com/api/questions/".$value["question_id"];
+			echo $que_lists;
+			$Datas=@file_get_contents($que_lists);
+			$endata=json_decode($Datas,true);
+
 			$data["Reply"][$key]=array(
 				#"title" => $value["title"],
 				"question_id"=>$value["question_id"],
 				"display_name"=>$this->request->pass[0],
-				#"tag" => $value["tags"][0]
+				"tag" => $endata["question"]["tags"][0],
 				"created" => $value["created"],
 				"modified" => $value["modified"],
 				);
