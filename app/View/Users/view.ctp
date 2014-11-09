@@ -72,7 +72,7 @@
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
-   		<img src="/terafile/img/logo.png">
+   		<img src="/TeamB/img/logo.png">
    	</a>
    </li>
 </ul>
