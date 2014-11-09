@@ -68,11 +68,11 @@
 </head>
 <body bgcolor="#cee4ae">
 
-<div id='cssmenu' align="center" style="margin-bottom:60px;">
+<div id='cssmenu' style="text-align: center !important;">
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
-   		<img src="/TeamB/img/logo.png">
+   		<img src="/terafile/img/logo.png">
    	</a>
    </li>
 </ul>
