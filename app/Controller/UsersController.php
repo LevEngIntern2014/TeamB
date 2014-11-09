@@ -86,6 +86,7 @@ class UsersController extends AppController {
 				"question_id"=>$value["question_id"],
 				"display_name"=>$this->request->pass[0],
 				"tag" => $endata["question"]["tags"][0],
+				"title" => $endata["question"]["title"],
 				"created" => $value["created"],
 				"modified" => $value["modified"],
 				);
