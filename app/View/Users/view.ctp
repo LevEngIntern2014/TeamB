@@ -103,13 +103,11 @@
                 <img src="/TeamB/img/ficon.jpg" width="30px;" height="30px;">
                 <p> ベストアンサー率</p>
     			<div class="progress">
-				  <div class="progress-bar progress-bar-success" aria-valuenow="60"style="width: 35%">
-				    <span class="sr-only">35%</span>
-				  </div>
-				  <div class="progress-bar progress-bar-danger progress-bar-striped"aria-valuenow="60" style="width: 60%">
-				    <span class="sr-only">60%</span>
-				  </div>
-				 </div>
+  <div class="progress-bar" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width: 27%;">
+    27%
+  </div>
+</div>
+
     		</div>
     	</div>
     </div>
