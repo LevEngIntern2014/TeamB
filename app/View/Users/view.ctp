@@ -47,7 +47,7 @@
     <!-- タイムライン用CSS-->
     <!--<link rel="stylesheet" href="css/demo.css" type="text/css" media="screen">-->
     <?php 
-    echo $this->Html->css('ramen');
+    echo $this->Html->css('ramen2');
     	echo $this->Html->css('timeliner');
     	echo $this->Html->css('responsive');
     	echo $this->Html->css('inc/colorbox');
