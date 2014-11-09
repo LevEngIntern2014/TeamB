@@ -68,7 +68,7 @@
 </head>
 <body bgcolor="#cee4ae">
 
-<div id='cssmenu' style="margin-bottom:60px;" style="text-align: center !important;">
+<div id='cssmenu' align = center style="margin-bottom:60px;">
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
