@@ -70,7 +70,7 @@
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
-   		<img src="http://localhost/TeamB/img/logo.png">
+   		<img src="/TeamB/img/logo.png">
    	</a>
    </li>
 </ul>
