@@ -40,13 +40,14 @@
    <meta charset='UTF-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="ramen.css">
+
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    
 
     <!-- タイムライン用CSS-->
     <!--<link rel="stylesheet" href="css/demo.css" type="text/css" media="screen">-->
     <?php 
+    echo $this->Html->css('ramen');
     	echo $this->Html->css('timeliner');
     	echo $this->Html->css('responsive');
     	echo $this->Html->css('inc/colorbox');
