@@ -118,7 +118,7 @@
                         <a href="">hogehoge</a>
                     </dd><!-- /.timeline-event-content -->
                 </dl><!-- /.timeline-series -->
-            </div><!-- /.timeline-wrapper -->
+            </div><!-- /.timeline-wrapper --> 
 
 
 
