@@ -1,8 +1,14 @@
 <?php
-    $cate_color = array("php"=>"blue","perl"=>"red");
-    //var_dump($Event);
-    //var_dump($TimelineData);
-    //exit;
+
+    $color = array(
+        "PHP"=>"#ffffcc",
+        "JavaScript" => "#6699ff",
+        "HTML5"=>"#ffcccc",
+        "Git"=>"#ccff99",
+        "プログラミング言語"=>"#ffffcc",
+        "データベース"=>"#ccff99",
+        "キャスト"=>"#ccff99",
+      );
 
     $timeline = array();
 
@@ -21,7 +27,6 @@
         $timeline[] = $val["Reply"];
      }
     }
-
     foreach($timeline as $key => $val){
         $updated[$key] = $val["created"];
     }
@@ -35,7 +40,7 @@
    <meta charset='UTF-8'>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <?php echo $this->Html->css('ramen'); ?>
+   <link rel="stylesheet" href="ramen.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    
 
@@ -64,8 +69,8 @@
 <ul style="list-style-type: none;">
    <li>
    	<a href='#'>
-   		<img src=<?php echo "http://".$_SERVER["SERVER_NAME"]."/terafile/img/logo.png" ?>>
-   	</a><img src="/terafile/img/git.png" width="30px;" height="30px;">
+   		<img src="http://localhost/TeamB/img/logo.png">
+   	</a>
    </li>
 </ul>
 </div>
@@ -94,18 +99,17 @@
 				<p><font size="-1">　自己紹介 ： <?php echo $profile["User"]["self_info"]; ?></font></p>
 				<p><font size="-1">ブログ ： 　<?php echo $profile["User"]["blog"]; ?></font></p>
     			</div>
-    			SNSアカウント
-    			<img src="/te/img/ficon.jpg" width="30px;" height="30px;">
-    			<img src="/terafile/img/tw.png" width="30px;" height="30px;">
-    			<img src="/terafile/img/ss.jpg" width="30px;" height="30px;">
-    			<img src="/terafile/img/gp.jpg" width="30px;" height="30px;">
-    			<img src="/terafile/img/git.jpg" width="30px;" height="30px;">
-    			<p>ベストアンサー率</p>
+          SNSアカウント
+                <img src="/TeamB/img/ficon.jpg" width="30px;" height="30px;">
+                <p> ベストアンサー率</p>
     			<div class="progress">
-				  <div class="progress-bar" role="progressbar" aria-valuenow="26" aria-valuemin="0" aria-valuemax="100" style="width: 26%;">
-				    26%
+				  <div class="progress-bar progress-bar-success" aria-valuenow="60"style="width: 35%">
+				    <span class="sr-only">35%</span>
 				  </div>
-				</div>
+				  <div class="progress-bar progress-bar-danger progress-bar-striped"aria-valuenow="60" style="width: 60%">
+				    <span class="sr-only">60%</span>
+				  </div>
+				 </div>
     		</div>
     	</div>
     </div>
@@ -120,57 +124,42 @@
             <br class="clear">
 
             <?php foreach($timeline as $val){?>
-            <div class="timeline-wrapper">
-                <h2 class="timeline-time">
-                    <span style="background: red;">
-                        <?php
-                            if(empty($val["tag"])){
-                                echo $val["title"];
-                            }else{
-                                echo $val["tag"];
-                            }
-                         ?>
-                    </span>
-                </h2>
-                <dl class="timeline-series">
-                    <dt id="19540517" class="timeline-event"><a></a></dt>
-                    <dd class="timeline-event-content" id="19540517EX">
-                        <a href="">asdfasdf</a><br/>
-                    </dd><!-- /.timeline-event-content -->
-                </dl><!-- /.timeline-series -->
-            </div><!-- /.timeline-wrapper -->
+
+                <?php if(empty($val["tag"])){ ?>
+
+                        <div class="timeline-wrapper">
+                            <h2 class="timeline-time">
+                                <span style="background: #ffffcc;">
+                                    <?php echo $val["title"];?>
+                                </span>
+                            </h2>
+                            <dl class="timeline-series">
+                                <dt id="<?php echo $val["id"];?>" class="timeline-event"><a></a></dt>
+                                <dd class="timeline-event-content" id="<?php echo $val["id"];?>EX">
+                                    <a href="<?php echo $val["url"];?>"><?php echo $val["title"];?></a><br/>
+                                </dd><!-- /.timeline-event-content -->
+                            </dl><!-- /.timeline-series -->
+                        </div><!-- /.timeline-wrapper -->
+
+                <?php }else{ ?>
+
+                      <div class="timeline-wrapper">
+                          <h2 class="timeline-time">
+                              <span style="background: $color[$val["tag"]];">
+                                <?php echo $val["tag"];?>
+                              </span>
+                          </h2>
+                          <dl class="timeline-series">
+                              <dt id="<?php echo $val["id"];?>" class="timeline-event"><a></a></dt>
+                              <dd class="timeline-event-content" id="<?php echo $val["id"];?>EX">
+                                  <a href="<?php echo $val["url"];?>"><?php echo $val["title"];?></a><br/>
+                              </dd><!-- /.timeline-event-content -->
+                          </dl><!-- /.timeline-series -->
+                      </div><!-- /.timeline-wrapper -->
+
+                <?php }?>
+
             <?php } ?>
-
-
-
-            <div class="timeline-wrapper">
-                <h2 class="timeline-time"><span>Perl</span></h2>
-                <dl class="timeline-series">
-                    <dt id="19550828" class="timeline-event"><a></a></dt>
-                    <dd class="timeline-event-content" id="19550828EX">
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a>
-                    </dd><!-- /.timeline-event-content -->
-                </dl><!-- /.timeline-series -->
-            </div><!-- /.timeline-wrapper -->
-
-            <div class="timeline-wrapper">
-                <h2 class="timeline-time"><span>CISCO</span></h2>
-                <dl class="timeline-series">
-                    <dt id="19570904" class="timeline-event"><a></a></dt>
-                    <dd class="timeline-event-content" id="19570904EX">
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a><br/>
-                        <a href="">hogehoge</a>
-                    </dd><!-- /.timeline-event-content -->
-                </dl><!-- /.timeline-series -->
-            </div><!-- /.timeline-wrapper -->
-
 
             <br class="clear">
         </div><!-- /#timelineContainer -->
@@ -179,11 +168,6 @@
 
     </div>
 </div>
-
-
-
-
-
 
 <!-- タイムライン用 -->
 <?php echo $this->Html->script('inc/colorbox');
@@ -207,7 +191,6 @@
         $(".CBmodal").colorbox({inline:true, initialWidth:100, maxWidth:682, initialHeight:100, transition:"elastic",speed:750});
     });
 </script>
-
 
 </body>
 </html>
